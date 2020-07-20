@@ -13,7 +13,7 @@ public class Funcionario {
 	
 	public void remover() {
 		if(Funcionario.funcionarios.size() == 0) {
-			System.out.println("N„o a funcionarios cadastrados");
+			System.out.println("N√£o a funcionarios cadastrados");
 			Menu.menuInicial();
 		} else {
 			System.out.println("Qual funcionario voce deseja remover? ");
@@ -25,6 +25,10 @@ public class Funcionario {
 			} catch (java.util.InputMismatchException exception) {
 				System.err.println("Argumento invalido!");
 				Menu.menuInicial();
+			}
+			if(Gratificacao.gratDeFuncionarios.size() != 0 && 
+			Gratificacao.gratDeFuncionarios.get(Funcionario.funcionarios.get(res)) != null) {
+				Gratificacao.gratDeFuncionarios.remove(funcionarios.get(res));
 			}
 			funcionarios.remove(res);
 			salarios.remove(res);
@@ -66,7 +70,7 @@ public class Funcionario {
 
 	public void atualizar() {
 		if(Funcionario.funcionarios.size() == 0) {
-			System.out.println("N„o a funcionarios cadastrados");
+			System.out.println("N√£o a funcionarios cadastrados");
 			Menu.menuInicial();
 		} else {
 			System.out.println("Qual funcionario voce deseja atualizar? ");
@@ -114,11 +118,11 @@ public class Funcionario {
 
 	public void recuperar() {
 		if(Funcionario.funcionarios.size() == 0) {
-			System.out.println("N„o a funcionarios cadastrados");
+			System.out.println("N√£o a funcionarios cadastrados");
 			Menu.menuInicial();
 		} else {
 			System.out.println("LISTA DE EMPREGADOS");
-			System.out.println("NOME  |  CARGO  |  SAL¡RIO BASE");
+			System.out.println("NOME  |  CARGO  |  SAL√ÅRIO BASE");
 			System.out.println();
 			for(int c = 0; c < funcionarios.size(); c++) {
 				System.out.println(funcionarios.get(c));
