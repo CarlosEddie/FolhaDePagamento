@@ -106,6 +106,10 @@ public class Funcionario {
 				System.out.println("Funcionario ja cadastrado");
 				Menu.menuInicial();
 			} else {
+				if(Gratificacao.gratDeFuncionarios.size() != 0 && 
+				Gratificacao.gratDeFuncionarios.get(Funcionario.funcionarios.get(fun)) != null) {
+					Gratificacao.gratDeFuncionarios.remove(funcionarios.get(fun));
+				}
 				funcionarios.remove(fun);
 				salarios.remove(fun);
 				funcionarios.add(fun, funCadastrado);
