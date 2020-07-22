@@ -83,8 +83,14 @@ public class Funcionario {
 			for(int c = 0; c < funcionarios.size(); c++) {
 				System.out.println("[" + c + "]" + funcionarios.get(c));
 			}
-			try {	
-				fun = teclado.nextInt();
+			try {
+				do {
+					fun = teclado.nextInt();
+					if(fun > (Funcionario.funcionarios.size() - 1) || fun < 0 ) {
+						System.out.println("Opção invalida! Tente novamente: ");
+					}
+				} while(fun > (Funcionario.funcionarios.size() - 1) || fun < 0 );
+					
 			} catch (java.util.InputMismatchException exception) {
 				System.err.println("Argumento invalido!");
 				Menu.menuInicial();
@@ -120,6 +126,7 @@ public class Funcionario {
 				salarios.remove(fun);
 				funcionarios.add(fun, funCadastrado);
 				salarios.add(fun, salario);
+				System.out.println("FUNCIONARIO ATUALIZADO COM SUCESSO!");
 				Menu.menuInicial();
 			}
 		}
