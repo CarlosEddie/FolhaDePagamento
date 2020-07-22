@@ -14,22 +14,27 @@ public class Gratificacao {
 
 	public void cadastrar() {
 		if(Funcionario.funcionarios.size() == 0) {
-			System.out.println("Não a funcionarios cadastrados");
+			System.out.println("NÃ£o a funcionarios cadastrados");
 			Menu.menuInicial();
 		} else {
-			System.out.println("Qual funcionario voce deseja dar uma gratificação? ");
+			System.out.println("Qual funcionario voce deseja dar uma gratificaÃ§Ã£o? ");
 			for(int c = 0; c < Funcionario.funcionarios.size(); c++) {
 				System.out.println("[" + c + "]" + Funcionario.funcionarios.get(c));
 			}
-			try {	
-				res = teclado.nextInt();
+			try {
+				do {
+					res = teclado.nextInt();
+					if(res > (Funcionario.funcionarios.size() - 1) || res < 0 ) {
+						System.out.println("OpÃ§Ã£o invalida! Tente novamente: ");
+					}
+				} while(res > (Funcionario.funcionarios.size() - 1) || res < 0 );
 			} catch (java.util.InputMismatchException exception) {
 				System.err.println("Argumento invalido!");
 				Menu.menuInicial();
 			}
 			if(	Gratificacao.gratDeFuncionarios.get(Funcionario.funcionarios.get(res)) == null) {
 				do {
-					System.out.println("Qual o tipo da Gratificação?");
+					System.out.println("Qual o tipo da GratificaÃ§Ã£o?");
 					System.out.println("[1]Desempenho");
 					System.out.println("[2]Hora Extra");
 					try {	
@@ -53,8 +58,8 @@ public class Gratificacao {
 						vencimentomensal = Funcionario.salarios.get(res) + gratificacao;
 					}
 					qtdgratificacao += 1;
-					System.out.println("GRATIFICAÇÃO ADICIONADA COM SUCESSO!");
-					System.out.println("Deseja adicionar mais uma gratficação? [1]Sim  [2]Não");
+					System.out.println("GRATIFICAÃ‡ÃƒO ADICIONADA COM SUCESSO!");
+					System.out.println("Deseja adicionar mais uma gratficaÃ§Ã£o? [1]Sim  [2]NÃ£o");
 					try {	
 						continuar = teclado.nextInt();
 					} catch (java.util.InputMismatchException exception) {
@@ -66,7 +71,7 @@ public class Gratificacao {
 				gratDeFuncionarios.put(Funcionario.funcionarios.get(res), gratCadastrada);
 				Menu.menuInicial();
 			} else {
-				System.out.println("Gratificações ja cadastradas");
+				System.out.println("GratificaÃ§Ãµes ja cadastradas");
 				Menu.menuInicial();
 			}
 		}
@@ -74,25 +79,30 @@ public class Gratificacao {
 
 	public void remover() {
 		if(Funcionario.funcionarios.size() == 0) {
-			System.out.println("Não a funcionarios cadastrados");
+			System.out.println("NÃ£o a funcionarios cadastrados");
 			Menu.menuInicial();
 		} else {
-			System.out.println("Qual funcionario voce deseja remover as gratificações? ");
+			System.out.println("Qual funcionario voce deseja remover as gratificaÃ§Ãµes? ");
 			for(int c = 0; c < Funcionario.funcionarios.size(); c++) {
 				System.out.println("[" + c + "]" + Funcionario.funcionarios.get(c));
 			}
-			try {	
-				res = teclado.nextInt();
+			try {
+				do {
+					res = teclado.nextInt();
+					if(res > (Funcionario.funcionarios.size() - 1) || res < 0 ) {
+						System.out.println("OpÃ§Ã£o invalida! Tente novamente: ");
+					}
+				} while(res > (Funcionario.funcionarios.size() - 1) || res < 0 );
 			} catch (java.util.InputMismatchException exception) {
 				System.err.println("Argumento invalido!");
 				Menu.menuInicial();
 			}
 			if(	Gratificacao.gratDeFuncionarios.get(Funcionario.funcionarios.get(res)) == null) {
-				System.out.println("Não a gratificações cadastradas");
+				System.out.println("NÃ£o a gratificaÃ§Ãµes cadastradas");
 				Menu.menuInicial();
 			} else {
 				gratDeFuncionarios.remove(Funcionario.funcionarios.get(res)); 
-				System.out.println("GRATIFICAÇÕES REMOVIDAS COM SUCESSO!");
+				System.out.println("GRATIFICAÃ‡Ã•ES REMOVIDAS COM SUCESSO!");
 				Menu.menuInicial();
 			}
 		}
@@ -100,26 +110,31 @@ public class Gratificacao {
 
 	public void atualizar() {
 		if(Funcionario.funcionarios.size() == 0) {
-			System.out.println("Não a funcionarios cadastrados");
+			System.out.println("NÃ£o a funcionarios cadastrados");
 			Menu.menuInicial();
 		} else {
-			System.out.println("Qual funcionario voce deseja atualizar as gratificações ? ");
+			System.out.println("Qual funcionario voce deseja atualizar as gratificaÃ§Ãµes ? ");
 			for(int c = 0; c < Funcionario.funcionarios.size(); c++) {
 				System.out.println("[" + c + "]" + Funcionario.funcionarios.get(c));
 			}
-			try {	
-				res = teclado.nextInt();
+			try {
+				do {
+					res = teclado.nextInt();
+					if(res > (Funcionario.funcionarios.size() - 1) || res < 0 ) {
+						System.out.println("OpÃ§Ã£o invalida! Tente novamente: ");
+					}
+				} while(res > (Funcionario.funcionarios.size() - 1) || res < 0 );
 			} catch (java.util.InputMismatchException exception) {
 				System.err.println("Argumento invalido!");
 				Menu.menuInicial();
 			}
 			if(	Gratificacao.gratDeFuncionarios.get(Funcionario.funcionarios.get(res)) == null) {
-				System.out.println("Não a gratificações cadastradas");
+				System.out.println("NÃ£o a gratificaÃ§Ãµes cadastradas");
 				Menu.menuInicial();
 				
 			} else {
 				do {
-					System.out.println("Qual o tipo da Gratificação?");
+					System.out.println("Qual o tipo da GratificaÃ§Ã£o?");
 					System.out.println("[1]Desempenho");
 					System.out.println("[2]Hora Extra");
 					try {	
@@ -143,8 +158,8 @@ public class Gratificacao {
 						vencimentomensal = Funcionario.salarios.get(res) + gratificacao;
 					}
 					qtdgratificacao += 1;
-					System.out.println("GRATIFICAÇÃO ATUALIZADA COM SUCESSO!");
-					System.out.println("Deseja adicionar mais uma gratficação? [1]Sim  [2]Não");
+					System.out.println("GRATIFICAÃ‡ÃƒO ATUALIZADA COM SUCESSO!");
+					System.out.println("Deseja adicionar mais uma gratficaÃ§Ã£o? [1]Sim  [2]NÃ£o");
 					try {	
 						continuar = teclado.nextInt();
 					} catch (java.util.InputMismatchException exception) {
@@ -162,11 +177,11 @@ public class Gratificacao {
 
 	public void recuperar() {
 		if(Funcionario.funcionarios.size() == 0) {
-			System.out.println("Não a funcionarios cadastrados");
+			System.out.println("NÃ£o a funcionarios cadastrados");
 			Menu.menuInicial();
 		} else {
-			System.out.println("LISTA DE GRATIFICAÇÕES");
-			System.out.println("QTDE. DE GRATIFICAÇÕES  |  VALOR DAS GRATIFICAÇÕES  |  VENCIMENTO MENSAL");
+			System.out.println("LISTA DE GRATIFICAÃ‡Ã•ES");
+			System.out.println("QTDE. DE GRATIFICAÃ‡Ã•ES  |  VALOR DAS GRATIFICAÃ‡Ã•ES  |  VENCIMENTO MENSAL");
 			System.out.println();
 			for(int c = 0; c < Funcionario.funcionarios.size(); c++) {
 				System.out.println(Gratificacao.gratDeFuncionarios.get(Funcionario.funcionarios.get(c)));
