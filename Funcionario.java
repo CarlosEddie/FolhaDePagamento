@@ -20,8 +20,14 @@ public class Funcionario {
 			for(int c = 0; c < funcionarios.size(); c++) {
 				System.out.println("[" + c + "]" + funcionarios.get(c));
 			}
-			try {	
-				res = teclado.nextInt();
+			try {
+				do {
+					res = teclado.nextInt();
+					if(res > (Funcionario.funcionarios.size() - 1) || res < 0 ) {
+						System.out.println("Opção invalida! Tente novamente: ");
+					}
+				} while(res > (Funcionario.funcionarios.size() - 1) || res < 0 );
+					
 			} catch (java.util.InputMismatchException exception) {
 				System.err.println("Argumento invalido!");
 				Menu.menuInicial();
