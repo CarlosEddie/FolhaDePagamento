@@ -27,7 +27,6 @@ public class Funcionario {
 						System.out.println("Opção invalida! Tente novamente: ");
 					}
 				} while(res > (Funcionario.funcionarios.size() - 1) || res < 0 );
-					
 			} catch (java.util.InputMismatchException exception) {
 				System.err.println("Argumento invalido!");
 				Menu.menuInicial();
@@ -90,7 +89,6 @@ public class Funcionario {
 						System.out.println("Opção invalida! Tente novamente: ");
 					}
 				} while(fun > (Funcionario.funcionarios.size() - 1) || fun < 0 );
-					
 			} catch (java.util.InputMismatchException exception) {
 				System.err.println("Argumento invalido!");
 				Menu.menuInicial();
